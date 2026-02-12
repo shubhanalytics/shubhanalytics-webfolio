@@ -159,7 +159,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#">
+							<form id="contactForm">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -219,6 +219,13 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				document.getElementById('contactForm').addEventListener('submit', function(e) {
+					e.preventDefault();
+					alert('Thank you for your message! Please contact me directly at shubhank.katarey@outlook.com');
+					this.reset();
+				});
+			</script>
 
 	</body>
 </html>
