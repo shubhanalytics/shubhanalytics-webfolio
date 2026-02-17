@@ -98,8 +98,15 @@ input, select, textarea {
 		box-sizing: inherit;
 	}
 
+	/* change background for a more technical/modern feel */
 	body {
-		background-color: #1e252d;
+		background: linear-gradient(135deg, #0f2027 0%, #1e252d 50%, #2c3e50 100%);
+		/* subtle grid overlay */
+		background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+		                  linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+		                  linear-gradient(135deg, #0f2027 0%, #1e252d 50%, #2c3e50 100%);
+		background-size: 30px 30px, 30px 30px, auto;
+		color: #d0d0d0;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -144,7 +151,7 @@ input, select, textarea {
 		}
 
 	body {
-		color: #212931;
+		color: #d0d0d0;
 	}
 
 	body, input, select, textarea {
