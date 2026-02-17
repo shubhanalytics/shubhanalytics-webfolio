@@ -154,7 +154,10 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form id="contactForm">
+							<form id="contactForm" action="https://formspree.io/f/xykdjnqw" method="POST">
+								<div id="formSuccess" class="box" role="status" aria-live="polite">
+									<strong>Thank you!</strong> Your message has been sent. I will get back to you soon.
+								</div>
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -169,6 +172,8 @@
 										<textarea name="message" id="message" rows="3" required></textarea>
 									</div>
 								</div>
+								<input type="hidden" name="_subject" value="New message from portfolio contact form" />
+								<input type="hidden" name="_next" value="index.html?submitted=1#footer" />
 								<ul class="actions">
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
@@ -216,12 +221,23 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
-				document.getElementById('contactForm').addEventListener('submit', function(e) {
-					e.preventDefault();
-					alert('Thank you for your message! Please contact me directly at shubhank.katarey@outlook.com');
-					this.reset();
-				});
+				(function () {
+					var params = new URLSearchParams(window.location.search);
+					if (params.get('submitted') === '1') {
+						var successMessage = document.getElementById('formSuccess');
+						if (successMessage) {
+							successMessage.style.display = 'block';
+							successMessage.setAttribute('tabindex', '-1');
+							successMessage.focus();
+						}
+						if (window.history && window.history.replaceState) {
+							params.delete('submitted');
+							var newQuery = params.toString();
+							var newUrl = window.location.pathname + (newQuery ? '?' + newQuery : '') + window.location.hash;
+							window.history.replaceState({}, document.title, newUrl);
+						}
+					}
+				})();
 			</script>
-
 	</body>
 </html>

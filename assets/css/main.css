@@ -4004,6 +4004,16 @@ input, select, textarea {
 			color: #717981;
 		}
 
+		#footer #formSuccess {
+			display: none;
+			background-color: #ffffff;
+			border: solid 2px #e2e2e2;
+			border-radius: 0.25rem;
+			color: #2f3742;
+			margin-bottom: 2rem;
+			padding: 1.25rem 1.5rem;
+		}
+
 		#footer blockquote {
 			border-left-color: #e2e2e2;
 		}
