@@ -151,8 +151,7 @@ input, select, textarea {
 		}
 
 	body {
-		color: #d0d0d0;
-	}
+			color: #e8e8e8;
 
 	body, input, select, textarea {
 		font-family: "Merriweather", Georgia, serif;
@@ -194,13 +193,7 @@ input, select, textarea {
 		letter-spacing: 0.075em;
 		text-transform: uppercase;
 		margin: 0 0 1rem 0;
-	}
-
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-			border-bottom: 0;
-			color: inherit;
-			text-decoration: none;
-		}
+			color: #100f0f;
 
 	h1 {
 		font-size: 4rem;
