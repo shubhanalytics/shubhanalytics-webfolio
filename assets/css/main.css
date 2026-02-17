@@ -78,10 +78,6 @@ input, select, textarea {
 		width: device-width;
 	}
 
-	body {
-		-ms-overflow-style: scrollbar;
-	}
-
 	@media screen and (max-width: 480px) {
 
 		html, body {
@@ -100,13 +96,28 @@ input, select, textarea {
 
 	/* change background for a more technical/modern feel */
 	body {
-		background: linear-gradient(135deg, #0f2027 0%, #1e252d 50%, #2c3e50 100%);
-		/* subtle grid overlay */
+		-ms-overflow-style: scrollbar;
+		/* base color gradient (underneath the grid) */
+		background-color: #0f2027;
 		background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
 		                  linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
 		                  linear-gradient(135deg, #0f2027 0%, #1e252d 50%, #2c3e50 100%);
 		background-size: 30px 30px, 30px 30px, auto;
 		color: #d0d0d0;
+	}
+
+	/* overrides to keep text legible on dark background */
+	body, body * {
+		color: #d0d0d0 !important;
+	}
+
+	a, a:visited, a:active {
+		color: #18bfef !important;
+	}
+
+	input, select, textarea {
+		background-color: #1e252d !important;
+		color: #d0d0d0 !important;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
