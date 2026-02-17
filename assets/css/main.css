@@ -3775,7 +3775,12 @@ input, select, textarea {
 		#main p,
 		#main li,
 		#main header.major > p {
-			color: #2f3742;
+			color: #1f2430;
+		}
+
+		#main > .post.featured header.major > p {
+			color: #1f2430;
+			font-weight: 400;
 		}
 
 		#main > * {
