@@ -291,6 +291,129 @@ blockquote, q {
 		}
 	}
 
+/* Readability & Stability Fixes */
+
+	body:before {
+		animation: none;
+	}
+
+	#wrapper > .bg {
+		filter: none;
+		opacity: 0.32;
+	}
+
+	#nav,
+	#main,
+	#footer,
+	#intro,
+	#header {
+		-webkit-backdrop-filter: none;
+		backdrop-filter: none;
+	}
+
+	#main,
+	#footer {
+		background: #ffffff;
+		border-color: #e2e8f0;
+	}
+
+	#main p,
+	#main li,
+	#main header.major > p,
+	#footer p,
+	#footer li,
+	#footer a {
+		color: #334155;
+	}
+
+	#main h1,
+	#main h2,
+	#main h3,
+	#main h4,
+	#main h5,
+	#main h6,
+	#footer h1,
+	#footer h2,
+	#footer h3,
+	#footer h4,
+	#footer h5,
+	#footer h6,
+	#footer label {
+		color: #0f172a;
+	}
+
+	#main a,
+	#footer a {
+		color: #0f5fbf;
+		border-bottom-color: rgba(15, 95, 191, 0.3);
+	}
+
+	#main a:hover,
+	#footer a:hover {
+		color: #0b4ca0;
+		border-bottom-color: rgba(11, 76, 160, 0.5);
+	}
+
+	#intro p,
+	#intro h1,
+	#intro h2,
+	#header .logo,
+	#nav ul.links li a,
+	#nav ul.icons li a,
+	#copyright,
+	#copyright a {
+		color: #f8fafc !important;
+	}
+
+	#main > .posts > article,
+	#main > .post,
+	#main > .post.featured {
+		background: #ffffff;
+		border-color: #e2e8f0;
+		box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+	}
+
+	#main > .posts > article:hover,
+	#main > .post:hover,
+	#main > .post.featured:hover {
+		transform: none;
+		box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+	}
+
+	.button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button {
+		background: #ffffff;
+		color: #0f172a !important;
+		box-shadow: inset 0 0 0 2px #0f172a;
+	}
+
+	.button.primary,
+	input[type="submit"].primary {
+		background: linear-gradient(90deg, #0ea5e9, #14b8a6);
+		color: #ffffff !important;
+		box-shadow: none;
+	}
+
+	#footer input[type="text"],
+	#footer input[type="password"],
+	#footer input[type="email"],
+	#footer textarea,
+	#footer select {
+		background: #ffffff;
+		border-color: #cbd5e1;
+		color: #0f172a;
+	}
+
+	.reveal-on-scroll,
+	.reveal-on-scroll.is-visible {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		* {
 			animation-duration: 0.01ms !important;
