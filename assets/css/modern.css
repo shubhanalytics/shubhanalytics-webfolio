@@ -144,6 +144,60 @@ a:hover {
   padding: 5.2rem 0 3rem;
 }
 
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-profile img {
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: rgba(10, 18, 33, 0.7);
+}
+
+.hero-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.hero-name {
+  margin: 0.2rem 0 0;
+  font-family: "Syne", sans-serif;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.hero-social {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.hero-social a {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4e5ff;
+  background: rgba(17, 29, 52, 0.85);
+}
+
 .hero-card,
 .panel,
 .project-card,
@@ -470,6 +524,11 @@ textarea {
   .hero-card,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .projects {
