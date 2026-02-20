@@ -86,9 +86,8 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', displayRandomQuote);
-  } else {
-    displayRandomQuote();
-  }
+  // Call immediately and also on DOMContentLoaded to ensure it loads
+  displayRandomQuote();
+  
+  window.addEventListener('load', displayRandomQuote);
 })();
