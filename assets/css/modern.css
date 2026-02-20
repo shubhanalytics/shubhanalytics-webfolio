@@ -324,6 +324,40 @@ h3:first-child {
   font-size: 0.84rem;
 }
 
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.6rem;
+}
+
+.competency-item {
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(8, 15, 30, 0.4);
+  transition: all 0.3s ease;
+}
+
+.competency-item:hover {
+  border-color: var(--primary);
+  background: rgba(14, 165, 233, 0.08);
+  transform: translateY(-2px);
+}
+
+.competency-item h3 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.competency-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #a9b8cc;
+}
+
 .avatar {
   width: 100%;
   border-radius: 16px;
@@ -938,6 +972,24 @@ textarea {
     font-size: 0.78rem;
   }
 
+  .competencies-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .competency-item {
+    padding: 1.2rem;
+  }
+
+  .competency-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .competency-item p {
+    font-size: 0.85rem;
+  }
+
   .subtitle {
     font-size: 0.95rem;
     margin-bottom: 1rem;
@@ -1119,6 +1171,25 @@ textarea {
   .badges span {
     padding: 0.2rem 0.5rem;
     font-size: 0.75rem;
+  }
+
+  .competencies-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .competency-item {
+    padding: 1rem;
+  }
+
+  .competency-item h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .competency-item p {
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
   .subtitle {
