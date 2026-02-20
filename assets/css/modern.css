@@ -505,7 +505,7 @@ h3:first-child {
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 1.8rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .about-content h1 {
@@ -516,17 +516,21 @@ h3:first-child {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 280px;
+  height: 320px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(8, 15, 30, 0.85);
+  padding: 8px;
+  overflow: hidden;
 }
 
 .about-badge img,
 .about-badge video {
   width: 100%;
   height: 100%;
-  border-radius: 14px;
-  object-fit: contain;
-  border: 1px solid var(--line);
-  background: rgba(8, 15, 30, 0.85);
-  padding: 8px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .projects {
@@ -793,7 +797,9 @@ textarea {
   }
 
   .about-badge {
-    max-height: 250px;
+    width: 100%;
+    height: 300px;
+    max-height: 300px;
   }
 
   .projects {
@@ -1257,7 +1263,9 @@ textarea {
   }
 
   .about-badge {
-    max-height: 200px;
+    width: 100%;
+    height: 240px;
+    max-height: 240px;
   }
 
   @keyframes driftOne {
