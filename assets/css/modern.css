@@ -555,6 +555,29 @@ textarea {
   background: rgba(17, 29, 52, 0.8);
 }
 
+.quote-box {
+  border: 1px solid rgba(110, 231, 255, 0.3);
+  background: rgba(110, 231, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+}
+
+.quote-box #quote-text {
+  font-style: italic;
+  color: #b9f3ff;
+  margin: 0 0 0.8rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.quote-box #quote-author {
+  color: #95a8cc;
+  font-size: 0.85rem;
+  margin: 0;
+  text-align: right;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(12px);
