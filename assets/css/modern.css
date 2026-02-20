@@ -413,12 +413,14 @@ h3:first-child {
 }
 
 .about-badge img {
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: auto;
+  max-height: 320px;
   border-radius: 14px;
-  object-fit: cover;
+  object-fit: contain;
   border: 1px solid var(--line);
   background: rgba(8, 15, 30, 0.85);
+  padding: 8px;
 }
 
 .projects {
