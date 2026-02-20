@@ -141,7 +141,7 @@ a:hover {
 }
 
 .hero {
-  padding: 5.2rem 0 3rem;
+  padding: 2.4rem 0 3rem;
 }
 
 .hero-header {
@@ -168,13 +168,13 @@ a:hover {
 }
 
 .hero-label {
-  margin: 0;
+  margin: 0.15rem 0 0;
   font-size: 0.85rem;
   color: var(--muted);
 }
 
 .hero-name {
-  margin: 0.2rem 0 0;
+  margin: 0;
   font-family: "Syne", sans-serif;
   font-size: 1.15rem;
   color: #fff;
@@ -233,13 +233,15 @@ h2 {
 }
 
 .heading-safe {
-  line-height: 1.3;
-  padding-bottom: 0.4rem;
+  line-height: 1.35;
+  padding-bottom: 0.6rem;
   display: inline-block;
+  overflow: visible;
 }
 
 .heading-room {
-  padding-bottom: 1.6rem;
+  padding-bottom: 2rem;
+  overflow: visible;
 }
 
 .subtitle {
@@ -396,10 +398,10 @@ h2 {
 
 .project-card img {
   width: 100%;
-  height: 220px;
+  height: 240px;
   object-fit: contain;
   background: rgba(8, 15, 30, 0.85);
-  padding: 10px;
+  padding: 14px;
 }
 
 .project-content {
