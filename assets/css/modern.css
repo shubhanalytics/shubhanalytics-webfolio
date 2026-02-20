@@ -540,8 +540,8 @@ h3:first-child {
   background: rgba(20, 31, 53, 0.8);
   cursor: pointer;
   transition: all 0.2s ease;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   min-height: 44px;
   min-width: 44px;
 }
