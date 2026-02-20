@@ -400,7 +400,7 @@ h3:first-child {
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 1.8rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .about-content h1 {
@@ -410,12 +410,12 @@ h3:first-child {
 .about-badge {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .about-badge img {
-  width: 280px;
-  height: auto;
-  max-height: 320px;
+  width: 100%;
+  height: 100%;
   border-radius: 14px;
   object-fit: contain;
   border: 1px solid var(--line);
