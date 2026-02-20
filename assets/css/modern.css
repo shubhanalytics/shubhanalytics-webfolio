@@ -445,7 +445,7 @@ h3:first-child {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(8, minmax(80px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -476,16 +476,12 @@ h3:first-child {
   color: var(--primary);
 }
 
-.tech-item .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.tech-item span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  max-width: 80px;
+  word-break: break-word;
 }
 
 .page-about .section,
@@ -560,7 +556,7 @@ h3:first-child {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 
@@ -607,6 +603,11 @@ h3:first-child {
 .btn.primary {
   background: linear-gradient(90deg, #0ea5e9, #14b8a6);
   border: none;
+  color: #fff;
+}
+
+a.btn {
+  color: #fff;
 }
 
 .footer {
@@ -866,6 +867,10 @@ textarea {
 
   .tech-item i {
     font-size: 2rem;
+  }
+
+  .tech-item span {
+    font-size: 0.75rem;
   }
 
   .container {
