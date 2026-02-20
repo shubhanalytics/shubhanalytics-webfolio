@@ -255,4 +255,74 @@
 
 		}
 
+	// Modern interaction polish.
+
+		// Reveal-on-scroll.
+			var revealSelectors = '#main .post, #main .posts article, #footer > section, #main .image';
+			var revealNodes = document.querySelectorAll(revealSelectors);
+
+			if (revealNodes.length > 0) {
+				revealNodes.forEach(function(node) {
+					node.classList.add('reveal-on-scroll');
+				});
+
+				if ('IntersectionObserver' in window) {
+					var revealObserver = new IntersectionObserver(function(entries, observer) {
+						entries.forEach(function(entry) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								observer.unobserve(entry.target);
+							}
+						});
+					}, {
+						root: null,
+						threshold: 0.15,
+						rootMargin: '0px 0px -8% 0px'
+					});
+
+					revealNodes.forEach(function(node) {
+						revealObserver.observe(node);
+					});
+				}
+				else {
+					revealNodes.forEach(function(node) {
+						node.classList.add('is-visible');
+					});
+				}
+			}
+
+		// Active nav state for hash links.
+			var navLinks = document.querySelectorAll('#nav .links a[href^="#"]');
+			var sectionMap = [];
+
+			navLinks.forEach(function(link) {
+				var targetId = link.getAttribute('href');
+				var section = document.querySelector(targetId);
+				if (section)
+					sectionMap.push({ link: link, section: section });
+			});
+
+			if (sectionMap.length > 0) {
+				var activateCurrentSection = function() {
+					var scrollPosition = window.scrollY + (window.innerHeight * 0.35);
+					var current = null;
+
+					sectionMap.forEach(function(item) {
+						if (item.section.offsetTop <= scrollPosition)
+							current = item;
+					});
+
+					navLinks.forEach(function(link) {
+						link.classList.remove('active-link');
+					});
+
+					if (current)
+						current.link.classList.add('active-link');
+				};
+
+				window.addEventListener('scroll', activateCurrentSection, { passive: true });
+				window.addEventListener('resize', activateCurrentSection);
+				activateCurrentSection();
+			}
+
 })(jQuery);
