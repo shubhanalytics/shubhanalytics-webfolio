@@ -37,6 +37,10 @@ body {
   line-height: 1.6;
 }
 
+p {
+  margin: 0 0 1rem;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -232,6 +236,15 @@ h2 {
   font-size: clamp(1.45rem, 3vw, 2rem);
 }
 
+h3 {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  margin: 1.4rem 0 0.65rem;
+}
+
+h3:first-child {
+  margin-top: 0;
+}
+
 .heading-safe {
   line-height: 1.35;
   padding-bottom: 0.6rem;
@@ -371,7 +384,7 @@ h2 {
 }
 
 .section {
-  padding: 2.2rem 0;
+  padding: 2.6rem 0;
 }
 
 .grid {
@@ -414,7 +427,7 @@ h2 {
 }
 
 .panel {
-  padding: 1.15rem;
+  padding: 1.4rem;
 }
 
 .stats {
@@ -467,6 +480,15 @@ h2 {
   background: var(--surface-soft);
   border-radius: var(--radius);
   padding: 1.2rem;
+}
+
+.footer-box .copyright {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(170, 191, 222, 0.18);
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
 }
 
 .contact-grid {
