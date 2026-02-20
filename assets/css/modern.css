@@ -18,16 +18,19 @@
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  touch-action: manipulation;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -77,10 +80,26 @@ body.page-contact {
 a {
   color: var(--primary);
   text-decoration: none;
+  outline-offset: 2px;
 }
 
 a:hover {
   color: #b9f3ff;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--primary);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .container {
@@ -148,10 +167,14 @@ a:hover {
   font-size: 0.8rem;
   text-decoration: none;
   transition: color 0.2s ease;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 2px 4px;
 }
 
 .profile-handle:hover {
   color: #b9f3ff;
+  background: rgba(110, 231, 255, 0.08);
 }
 
 .nav-wrap {
@@ -183,6 +206,7 @@ a:hover {
   border-radius: 999px;
   border: 1px solid transparent;
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .nav-links a:hover,
@@ -190,6 +214,10 @@ a:hover {
   color: #fff;
   border-color: rgba(110, 231, 255, 0.35);
   background: rgba(110, 231, 255, 0.1);
+}
+
+.nav-links a:active {
+  transform: scale(0.98);
 }
 
 .menu-btn {
@@ -200,6 +228,21 @@ a:hover {
   border-radius: 10px;
   width: 42px;
   height: 42px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.menu-btn:hover {
+  border-color: rgba(110, 231, 255, 0.5);
+  background: rgba(110, 231, 255, 0.08);
+}
+
+.menu-btn:active {
+  transform: scale(0.95);
 }
 
 .hero {
@@ -495,6 +538,16 @@ h3:first-child {
   border: 1px solid var(--line);
   color: #fff;
   background: rgba(20, 31, 53, 0.8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .btn.primary {
@@ -539,11 +592,21 @@ textarea {
   color: #fff;
   padding: 0.72rem 0.85rem;
   font: inherit;
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input:focus,
+textarea:focus {
+  background: rgba(7, 14, 30, 0.9);
+  border-color: rgba(110, 231, 255, 0.5);
 }
 
 textarea {
   min-height: 120px;
   resize: vertical;
+  font-family: inherit;
 }
 
 .social {
@@ -562,6 +625,20 @@ textarea {
   justify-content: center;
   color: #d4e5ff;
   background: rgba(17, 29, 52, 0.8);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.social a:hover {
+  border-color: rgba(110, 231, 255, 0.5);
+  background: rgba(110, 231, 255, 0.12);
+  color: #fff;
+}
+
+.social a:active {
+  transform: scale(0.94);
 }
 
 .quote-box {
@@ -599,21 +676,24 @@ textarea {
 }
 
 @media (max-width: 920px) {
+  .container {
+    width: min(var(--max), calc(100% - 1.6rem));
+  }
+
   .hero-card,
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .sticky-header {
-    flex-wrap: wrap;
     height: auto;
     padding: 0.8rem 1rem;
-    gap: 0.8rem;
+    gap: 1rem;
+    justify-content: space-between;
   }
 
   .profile-header {
-    order: 1;
-    flex-basis: 100%;
+    flex-shrink: 0;
   }
 
   .menu-btn {
@@ -621,19 +701,21 @@ textarea {
     align-items: center;
     justify-content: center;
     order: 2;
+    margin-left: auto;
   }
 
   .nav-links {
     position: absolute;
-    top: 80px;
+    top: 100%;
     left: 0;
     right: 0;
-    background: rgba(3, 10, 23, 0.96);
+    background: rgba(3, 10, 23, 0.98);
     border-bottom: 1px solid var(--line);
     display: none;
     flex-direction: column;
-    padding: 0.8rem;
-    order: 3;
+    padding: 0.5rem;
+    gap: 0.3rem;
+    z-index: 99;
   }
 
   .nav-links.open {
@@ -642,11 +724,17 @@ textarea {
 
   .nav-links a {
     width: 100%;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.95rem;
   }
 
   .about-header {
     grid-template-columns: 1fr;
     gap: 1.4rem;
+  }
+
+  .about-badge {
+    max-height: 250px;
   }
 
   .projects {
@@ -657,30 +745,505 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .hero {
+    padding: 90px 0 2rem;
+  }
+
+  .page-about .section,
+  .page-contact .section {
+    padding-top: 90px;
+  }
+
+  .hero-card {
+    padding: 1.2rem;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  }
+
+  .actions {
+    gap: 0.6rem;
+  }
+
+  .btn {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-visual {
+    min-height: 240px;
+  }
+
+  input,
+  textarea {
+    padding: 0.8rem 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  .social a {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contact-grid {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(var(--max), calc(100% - 1.2rem));
+  }
+
+  .sticky-header {
+    padding: 0.7rem 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .profile-pic {
+    width: 48px;
+    height: 48px;
+  }
+
+  .profile-name {
+    font-size: 0.85rem;
+  }
+
+  .profile-handle {
+    font-size: 0.75rem;
+  }
+
   .menu-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: rgba(3, 10, 23, 0.96);
-    border-bottom: 1px solid var(--line);
-    display: none;
-    flex-direction: column;
-    padding: 0.8rem;
-  }
-
-  .nav-links.open {
-    display: flex;
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
   }
 
   .nav-links a {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+    margin-bottom: 0.6rem;
+  }
+
+  h2 {
+    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  }
+
+  h3 {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+
+  .badge {
+    gap: 0.6rem;
+  }
+
+  .badges span {
+    padding: 0.22rem 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero {
+    padding: 80px 0 1.8rem;
+  }
+
+  .page-about .section,
+  .page-contact .section {
+    padding-top: 80px;
+  }
+
+  .panel {
+    padding: 1.2rem;
+  }
+
+  .hero-card {
+    padding: 1.1rem;
+    gap: 1.2rem;
+  }
+
+  .sections {
+    padding: 2rem 0;
+  }
+
+  .project-card img {
+    height: 200px;
+  }
+
+  .meta {
+    font-size: 0.78rem;
+  }
+
+  .btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .actions {
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.75rem 0.8rem;
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  label {
+    font-size: 0.9rem;
+  }
+
+  .social a {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .stat {
+    padding: 0.9rem;
+  }
+
+  .stat b {
+    font-size: 1.25rem;
+  }
+
+  .quote-box {
+    padding: 1rem;
+  }
+
+  .quote-box #quote-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .quote-box #quote-author {
+    font-size: 0.8rem;
+  }
+
+  .hero-visual .orb-one {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hero-visual .orb-two {
+    width: 130px;
+    height: 130px;
+  }
+
+  .hero-visual .orb-three {
+    width: 90px;
+    height: 90px;
+  }
+
+  .hero-visual .pulse-ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-visual .data-grid {
+    background-size: 20px 20px;
+  }
+
+  @keyframes driftOne {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(12px, 8px); }
+  }
+
+  @keyframes driftTwo {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-15px, -10px); }
+  }
+
+  @keyframes driftThree {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -12px); }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 1rem);
+  }
+
+  .sticky-header {
+    padding: 0.6rem 0.7rem;
+    gap: 0.5rem;
+    height: 64px;
+  }
+
+  .profile-pic {
+    width: 44px;
+    height: 44px;
+  }
+
+  .profile-name {
+    font-size: 0.8rem;
+  }
+
+  .profile-handle {
+    font-size: 0.7rem;
+  }
+
+  .menu-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  .nav-links {
+    top: 64px;
+    padding: 0.4rem;
+  }
+
+  .nav-links a {
+    padding: 0.55rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+  }
+
+  h3 {
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    margin: 1.2rem 0 0.5rem;
+  }
+
+  .badges span {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero {
+    padding: 70px 0 1.5rem;
+  }
+
+  .page-about .section,
+  .page-contact .section {
+    padding-top: 70px;
+  }
+
+  .hero-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .panel {
+    padding: 1rem;
+  }
+
+  .section {
+    padding: 1.8rem 0;
+  }
+
+  .project-card img {
+    height: 180px;
+  }
+
+  .project-content {
+    padding: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.8rem;
+    flex: 1;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.7rem;
+  }
+
+  .actions .btn {
     width: 100%;
+  }
+
+  input,
+  textarea {
+    padding: 0.75rem 0.75rem;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+  }
+
+  label {
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  textarea {
+    min-height: 90px;
+  }
+
+  .social a {
+    width: 40px;
+    height: 40px;
+    font-size: 0.85rem;
+  }
+
+  .social {
+    gap: 0.5rem;
+  }
+
+  .stat {
+    padding: 0.8rem;
+  }
+
+  .stat b {
+    font-size: 1.1rem;
+  }
+
+  .contact-grid {
+    gap: 1rem;
+  }
+
+  .quote-box {
+    padding: 0.9rem;
+    margin-top: 0.8rem;
+  }
+
+  .quote-box #quote-text {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .quote-box #quote-author {
+    font-size: 0.75rem;
+  }
+
+  .footer-box {
+    padding: 1rem;
+  }
+
+  .footer-box .copyright {
+    font-size: 0.8rem;
+  }
+
+  .hero-visual {
+    min-height: 200px;
+  }
+
+  .hero-visual .orb-one {
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero-visual .orb-two {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hero-visual .orb-three {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hero-visual .pulse-ring {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-visual .data-grid {
+    background-size: 16px 16px;
+  }
+
+  .about-badge {
+    max-height: 200px;
+  }
+
+  @keyframes driftOne {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(8px, 5px); }
+  }
+
+  @keyframes driftTwo {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10px, -8px); }
+  }
+
+  @keyframes driftThree {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(8px, -8px); }
+  }
+}
+
+@media (max-width: 360px) {
+  .sticky-header {
+    height: 60px;
+    padding: 0.5rem;
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-name {
+    font-size: 0.75rem;
+  }
+
+  .profile-handle {
+    font-size: 0.65rem;
+  }
+
+  h1 {
+    font-size: clamp(1.15rem, 2.8vw, 1.8rem);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero {
+    padding: 65px 0 1.2rem;
+  }
+
+  .page-about .section,
+  .page-contact .section {
+    padding-top: 65px;
+  }
+
+  .hero-card {
+    padding: 0.9rem;
+  }
+
+  .panel {
+    padding: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.55rem 0.7rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -694,5 +1257,109 @@ textarea {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .nav-links a,
+  .social a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input,
+  textarea {
+    font-size: 16px;
+  }
+
+  a:hover {
+    color: var(--primary);
+  }
+
+  .nav-links a:hover {
+    border-color: transparent;
+    background: transparent;
+  }
+
+  .nav-links a:active {
+    background: rgba(110, 231, 255, 0.1);
+    border-color: rgba(110, 231, 255, 0.35);
+  }
+}
+
+/* Landscape orientation optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding: 70px 0 1rem;
+  }
+
+  .page-about .section,
+  .page-contact .section {
+    padding-top: 70px;
+  }
+
+  .hero-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .hero-visual {
+    min-height: 180px;
+  }
+
+  .hero-visual .pulse-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  header.topbar {
+    height: 60px;
+  }
+
+  .sticky-header {
+    height: 60px;
+    padding: 0.5rem 0.8rem;
+    gap: 0.5rem;
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-name {
+    font-size: 0.75rem;
+  }
+
+  .profile-handle {
+    font-size: 0.65rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .badge {
+    gap: 0.4rem;
+  }
+
+  .badges span {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .section {
+    padding: 1.2rem 0;
   }
 }
