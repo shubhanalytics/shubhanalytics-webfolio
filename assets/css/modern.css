@@ -439,6 +439,55 @@ h3:first-child {
   margin-top: 2rem;
 }
 
+.tech-stack-section {
+  padding: 2.6rem 0;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tech-item:hover {
+  border-color: rgba(110, 231, 255, 0.5);
+  background: rgba(110, 231, 255, 0.08);
+  transform: translateY(-4px);
+}
+
+.tech-item i {
+  font-size: 2.4rem;
+  color: var(--primary);
+}
+
+.tech-item .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .page-about .section,
 .page-contact .section {
   padding-top: 100px;
@@ -806,6 +855,19 @@ textarea {
 }
 
 @media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .tech-item {
+    padding: 1.2rem;
+  }
+
+  .tech-item i {
+    font-size: 2rem;
+  }
+
   .container {
     width: min(var(--max), calc(100% - 1.2rem));
   }
