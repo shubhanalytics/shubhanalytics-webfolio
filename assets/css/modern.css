@@ -477,11 +477,14 @@ h3:first-child {
 }
 
 .tech-item span {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #fff;
-  max-width: 80px;
+  max-width: 75px;
   word-break: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .page-about .section,
@@ -870,7 +873,7 @@ textarea {
   }
 
   .tech-item span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .container {
