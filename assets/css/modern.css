@@ -396,16 +396,29 @@ h3:first-child {
   gap: 1rem;
 }
 
-.about-snapshot-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.8rem;
+.about-header {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 1.8rem;
+  align-items: start;
 }
 
-.linkedin-badge-container {
+.about-content h1 {
+  margin-top: 0;
+}
+
+.about-badge {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 1.8rem 1.4rem;
+}
+
+.about-badge img {
+  width: 220px;
+  height: 220px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: rgba(8, 15, 30, 0.85);
 }
 
 .projects {
@@ -560,6 +573,11 @@ textarea {
   .hero-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .about-header {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
   }
 
   .projects {
