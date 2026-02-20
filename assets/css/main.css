@@ -52,7 +52,6 @@ table {
 }
 
 body {
-	-webkit-text-size-adjust: none;
 }
 
 mark {
@@ -262,7 +261,6 @@ input, select, textarea {
 	}
 
 	pre {
-		-webkit-overflow-scrolling: touch;
 		font-family: "Courier New", monospace;
 		font-size: 0.9rem;
 		margin: 0 0 2rem 0;
@@ -2642,6 +2640,17 @@ input, select, textarea {
 				width: 100%;
 			}
 
+		.projects-cta {
+			text-align: center;
+			padding: 1rem 0;
+			border-top: 2px solid #3c3c3c;
+			margin: 1rem 0;
+		}
+
+			.projects-cta .actions.special {
+				justify-content: center;
+			}
+
 		.image.main {
 			display: block;
 			margin: 4rem 0;
@@ -3013,7 +3022,6 @@ input, select, textarea {
 /* Table */
 
 	.table-wrapper {
-		-webkit-overflow-scrolling: touch;
 		overflow-x: auto;
 	}
 
@@ -4593,7 +4601,6 @@ input, select, textarea {
 		-ms-transition: -ms-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		display: none;
-		-webkit-overflow-scrolling: touch;
 		background: #ffffff;
 		box-shadow: none;
 		color: #212931;
