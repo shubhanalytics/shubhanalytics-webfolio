@@ -692,7 +692,7 @@ h3:first-child {
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 1.8rem;
-  align-items: start;
+  align-items: center;
 }
 
 .about-content h1 {
