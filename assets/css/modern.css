@@ -638,6 +638,22 @@ h3:first-child {
   gap: 1rem;
 }
 
+.ventures-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.venture-section {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(8, 15, 30, 0.4);
+  padding: 1rem;
+}
+
+.venture-section h2 {
+  margin: 0 0 0.65rem;
+}
+
 .business-list {
   margin: 0;
   padding-left: 1.2rem;

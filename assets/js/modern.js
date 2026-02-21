@@ -56,15 +56,21 @@
   businessLinks.forEach(function (businessLink) {
     businessLink.addEventListener('click', function (event) {
       event.preventDefault();
+      if (businessLink.dataset.pendingRedirect === 'true') {
+        return;
+      }
+
+      businessLink.dataset.pendingRedirect = 'true';
       const targetUrl = businessLink.getAttribute('data-redirect-url') || businessLink.getAttribute('href');
 
       if (redirectMessage) {
-        redirectMessage.textContent = 'Redirecting to NutriVerse in a new tab...';
+        redirectMessage.textContent = 'Redirecting to NutriVerse in a new tab in 3 seconds...';
       }
 
       window.setTimeout(function () {
         window.open(targetUrl, '_blank', 'noopener');
-      }, 450);
+        businessLink.dataset.pendingRedirect = 'false';
+      }, 3000);
     });
   });
 
