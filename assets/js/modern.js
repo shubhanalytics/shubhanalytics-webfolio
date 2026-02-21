@@ -70,6 +70,9 @@
       window.setTimeout(function () {
         window.open(targetUrl, '_blank', 'noopener');
         businessLink.dataset.pendingRedirect = 'false';
+        if (redirectMessage) {
+          redirectMessage.textContent = '';
+        }
       }, 3000);
     });
   });
