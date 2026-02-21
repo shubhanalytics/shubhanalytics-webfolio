@@ -638,6 +638,27 @@ h3:first-child {
   gap: 1rem;
 }
 
+.business-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.business-list li {
+  margin-bottom: 0.35rem;
+}
+
+.business-link {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.business-redirect-message {
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+  color: #b9f3ff;
+  min-height: 1.5em;
+}
+
 .about-header {
   display: grid;
   grid-template-columns: 1fr 280px;

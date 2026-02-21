@@ -50,6 +50,24 @@
     }
   });
 
+  const businessLinks = document.querySelectorAll('[data-business-link]');
+  const redirectMessage = document.getElementById('business-redirect-message');
+
+  businessLinks.forEach(function (businessLink) {
+    businessLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      const targetUrl = businessLink.getAttribute('data-redirect-url') || businessLink.getAttribute('href');
+
+      if (redirectMessage) {
+        redirectMessage.textContent = 'Redirecting to NutriVerse in a new tab...';
+      }
+
+      window.setTimeout(function () {
+        window.open(targetUrl, '_blank', 'noopener');
+      }, 450);
+    });
+  });
+
   // Quote of the Day
   const quotes = [
     { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
