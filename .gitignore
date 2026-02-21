@@ -1,0 +1,56 @@
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.tmp
+
+# Editor & IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.code-workspace
+
+# Build & Dependencies
+node_modules/
+bower_components/
+dist/
+build/
+.sass-cache/
+*.log
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Cache
+.cache/
+cache/
+*.cache
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Compressed files (unless they're part of the site)
+*.zip
+*.rar
+*.7z
+*.gz
+*.tar
+
+# IDE specific
+.vscode/settings.json
+.vscode/extensions.json
