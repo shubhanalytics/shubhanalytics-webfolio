@@ -18,6 +18,67 @@
 
   const revealElements = document.querySelectorAll('.reveal');
 
+  const autoplayVideos = document.querySelectorAll('video');
+
+  function ensureAutoplay(video) {
+    video.removeAttribute('controls');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('loop', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+    video.setAttribute('disablepictureinpicture', '');
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(function () {
+        // Playback can be blocked until a user gesture on some mobile browsers.
+      });
+    }
+  }
+
+  if (autoplayVideos.length > 0) {
+    autoplayVideos.forEach(function (video) {
+      ensureAutoplay(video);
+
+      video.addEventListener('loadedmetadata', function () {
+        ensureAutoplay(video);
+      });
+
+      video.addEventListener('canplay', function () {
+        ensureAutoplay(video);
+      });
+    });
+
+    document.addEventListener(
+      'visibilitychange',
+      function () {
+        if (!document.hidden) {
+          autoplayVideos.forEach(function (video) {
+            ensureAutoplay(video);
+          });
+        }
+      },
+      { passive: true }
+    );
+
+    document.addEventListener(
+      'touchstart',
+      function () {
+        autoplayVideos.forEach(function (video) {
+          ensureAutoplay(video);
+        });
+      },
+      { passive: true }
+    );
+  }
+
   if (revealElements.length > 0) {
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(

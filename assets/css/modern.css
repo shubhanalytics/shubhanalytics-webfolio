@@ -785,6 +785,15 @@ h3:first-child {
   display: none !important;
 }
 
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .projects .project-card:nth-child(2) img {
   animation-name: projectDrift;
   animation-duration: 8s;
