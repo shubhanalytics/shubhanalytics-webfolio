@@ -764,10 +764,13 @@ h3:first-child {
 }
 
 .project-card video {
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: contain;
-  animation: none;
-  transform: none;
-  filter: none;
+  animation: none !important;
+  transform: none !important;
+  filter: none !important;
+  will-change: auto;
 }
 
 .project-card video {
@@ -782,20 +785,17 @@ h3:first-child {
   display: none !important;
 }
 
-.projects .project-card:nth-child(2) img,
-.projects .project-card:nth-child(2) video {
+.projects .project-card:nth-child(2) img {
   animation-name: projectDrift;
   animation-duration: 8s;
 }
 
-.projects .project-card:nth-child(3) img,
-.projects .project-card:nth-child(3) video {
+.projects .project-card:nth-child(3) img {
   animation-duration: 6.5s;
   animation-delay: 0.4s;
 }
 
-.projects .project-card:nth-child(4) img,
-.projects .project-card:nth-child(4) video {
+.projects .project-card:nth-child(4) img {
   animation-name: projectDrift;
   animation-duration: 7.5s;
   animation-delay: 0.2s;
