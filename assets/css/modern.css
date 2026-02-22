@@ -764,6 +764,13 @@ h3:first-child {
 }
 
 .project-card video {
+  object-fit: contain;
+  animation: none;
+  transform: none;
+  filter: none;
+}
+
+.project-card video {
   pointer-events: none;
 }
 
