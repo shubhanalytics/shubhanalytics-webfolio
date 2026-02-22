@@ -756,6 +756,49 @@ h3:first-child {
   object-fit: contain;
   background: rgba(8, 15, 30, 0.85);
   padding: 14px;
+  animation: projectFloat 7s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform, filter;
+}
+
+.projects .project-card:nth-child(2) img {
+  animation-name: projectDrift;
+  animation-duration: 8s;
+}
+
+.projects .project-card:nth-child(3) img {
+  animation-duration: 6.5s;
+  animation-delay: 0.4s;
+}
+
+.projects .project-card:nth-child(4) img {
+  animation-name: projectDrift;
+  animation-duration: 7.5s;
+  animation-delay: 0.2s;
+}
+
+@keyframes projectFloat {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+    filter: saturate(1);
+  }
+  50% {
+    transform: scale(1.03) translateY(-4px);
+    filter: saturate(1.08);
+  }
+}
+
+@keyframes projectDrift {
+  0%,
+  100% {
+    transform: scale(1) translateX(0);
+    filter: contrast(1);
+  }
+  50% {
+    transform: scale(1.025) translateX(4px);
+    filter: contrast(1.06);
+  }
 }
 
 .project-content {
