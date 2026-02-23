@@ -314,14 +314,14 @@ textarea:focus-visible {
 }
 
 .hero-card--landing .actions {
-  margin-top: 0.25rem;
+  margin-top: 0.8rem;
 }
 
 .hero-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-  margin-top: 0.75rem;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
 }
 
 .hero-metric {
@@ -596,16 +596,24 @@ h3:first-child {
 }
 
 .section--compact {
-  padding: 1.2rem 0;
+  padding: 1.6rem 0 2rem 0;
 }
 
 .academic-portfolio-box {
   text-align: center;
-  padding: 1.2rem;
+  padding: 1.6rem;
+  margin-bottom: 1.2rem;
 }
 
 .academic-portfolio-box h2 {
-  margin: 0;
+  margin: 0 0 0.8rem 0;
+}
+
+.academic-portfolio-box p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .view-all-cta {
@@ -1011,7 +1019,7 @@ a.btn {
 }
 
 .footer {
-  margin: 3rem 0 2rem;
+  margin: 4rem 0 2rem;
 }
 
 .footer-box {
@@ -1395,6 +1403,24 @@ textarea {
     font-size: 0.85rem;
   }
 
+  .businesses-list {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+  }
+
+  .business-card {
+    padding: 1.2rem;
+  }
+
+  .business-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .business-card p {
+    font-size: 0.9rem;
+  }
+
   .subtitle {
     font-size: 0.95rem;
     margin-bottom: 1rem;
@@ -1630,6 +1656,25 @@ textarea {
     line-height: 1.5;
   }
 
+  .businesses-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .business-card {
+    padding: 1rem;
+  }
+
+  .business-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .business-card p {
+    font-size: 0.85rem;
+  }
+
   .subtitle {
     font-size: 0.9rem;
     margin-bottom: 0.9rem;
@@ -1841,6 +1886,25 @@ textarea {
   .btn {
     padding: 0.55rem 0.7rem;
     font-size: 0.75rem;
+  }
+
+  .businesses-list {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin: 1.2rem 0;
+  }
+
+  .business-card {
+    padding: 0.9rem;
+  }
+
+  .business-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .business-card p {
+    font-size: 0.8rem;
   }
 }
 
