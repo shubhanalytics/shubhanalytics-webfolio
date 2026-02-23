@@ -718,6 +718,48 @@ h3:first-child {
   min-height: 1.5em;
 }
 
+.businesses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.business-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.business-card:hover {
+  background: var(--surface-soft);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(110, 231, 255, 0.15);
+}
+
+.business-card h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.business-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.business-card .btn {
+  align-self: flex-start;
+}
+
 .about-header {
   display: grid;
   grid-template-columns: 1fr 280px;
