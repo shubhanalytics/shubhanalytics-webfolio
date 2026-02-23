@@ -11,22 +11,34 @@
     <meta name="format-detection" content="telephone=no" />
     <title>Contact | Shubhanalytics</title>
     <meta name="description" content="Contact Shubhank Katarey for analytics, dashboarding, and machine learning consulting." />
-    <link rel="stylesheet" href="assets/css/modern.css?v=20260220r14" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://shubhanalytics.github.io/shubhanalytics-webfolio/elements.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact | Shubhanalytics" />
+    <meta property="og:description" content="Reach out for data analytics, dashboarding, and machine learning consulting." />
+    <meta property="og:url" content="https://shubhanalytics.github.io/shubhanalytics-webfolio/elements.html" />
+    <meta property="og:image" content="https://shubhanalytics.github.io/shubhanalytics-webfolio/images/my-pic.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact | Shubhanalytics" />
+    <meta name="twitter:description" content="Reach out for data analytics, dashboarding, and machine learning consulting." />
+    <meta name="twitter:image" content="https://shubhanalytics.github.io/shubhanalytics-webfolio/images/my-pic.jpg" />
+    <link rel="stylesheet" href="assets/css/modern.css?v=20260223r16" />
   </head>
   <body class="page-contact">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="topbar">
       <div class="sticky-header">
         <div class="profile-header">
-          <img src="images/my-pic.jpg" alt="Shubhank Katarey" class="profile-pic" />
+          <img src="images/my-pic.jpg" alt="Shubhank Katarey" class="profile-pic" width="56" height="56" decoding="async" />
           <div class="profile-info">
             <p class="profile-name">Shubhank Katarey</p>
             <a href="https://x.com/shubhanalytics" target="_blank" rel="noopener noreferrer" class="profile-handle">@shubhanalytics</a>
           </div>
         </div>
-        <button class="menu-btn" aria-label="Open menu" aria-expanded="false" data-menu-button>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" data-menu-button>
           <i class="fas fa-bars"></i>
         </button>
-        <nav class="nav-links" data-nav-links>
+        <nav class="nav-links" id="site-nav" aria-label="Primary" data-nav-links>
           <a href="index.html">Home</a>
           <a href="generic.html">Businesses</a>
           <a href="elements.html">Contact</a>
@@ -34,22 +46,24 @@
       </div>
     </header>
 
-    <main class="section">
+    <main class="section" id="main-content">
       <div class="container contact-grid">
         <section class="contact-card panel reveal">
           <h1>Let’s Connect</h1>
-          <p class="subtitle">Share your requirement and I’ll get back with a clear plan and next steps.</p>
-          <form action="https://formspree.io/f/xykdjnqw" method="POST">
+          <p class="subtitle">Share your requirement, and I’ll respond with a clear scope, timeline, and next steps.</p>
+          <form action="https://formspree.io/f/xykdjnqw" method="POST" id="contact-form" data-contact-form>
+            <p class="form-hint" id="contact-form-hint">All fields are required.</p>
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
+            <input id="name" name="name" type="text" autocomplete="name" aria-describedby="contact-form-hint" required />
 
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="contact-form-hint" required />
 
             <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" aria-describedby="contact-form-hint" required></textarea>
 
             <input type="hidden" name="_subject" value="New message from webfolio" />
+            <p id="contact-form-status" class="form-status" role="status" aria-live="polite"></p>
             <div class="actions">
               <button class="btn primary" type="submit">Send Message</button>
             </div>
@@ -85,6 +99,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/modern.js?v=20260220r14"></script>
+    <script src="assets/js/modern.js?v=20260223r18" defer></script>
   </body>
 </html>

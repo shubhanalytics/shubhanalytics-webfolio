@@ -11,22 +11,54 @@
     <meta name="format-detection" content="telephone=no" />
     <title>Shubhank Katarey | Data Analyst Webfolio</title>
     <meta name="description" content="Modern webfolio of Shubhank Katarey featuring analytics, machine learning, and business intelligence projects." />
-    <link rel="stylesheet" href="assets/css/modern.css?v=20260220r15" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://shubhanalytics.github.io/shubhanalytics-webfolio/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shubhank Katarey | Data Analyst Webfolio" />
+    <meta property="og:description" content="Data analytics, machine learning, and BI projects with measurable business outcomes." />
+    <meta property="og:url" content="https://shubhanalytics.github.io/shubhanalytics-webfolio/index.html" />
+    <meta property="og:image" content="https://shubhanalytics.github.io/shubhanalytics-webfolio/images/my-pic.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shubhank Katarey | Data Analyst Webfolio" />
+    <meta name="twitter:description" content="Data analytics, machine learning, and BI projects with measurable business outcomes." />
+    <meta name="twitter:image" content="https://shubhanalytics.github.io/shubhanalytics-webfolio/images/my-pic.jpg" />
+    <link rel="stylesheet" href="assets/css/modern.css?v=20260223r16" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shubhank Katarey",
+        "jobTitle": "Data Analyst",
+        "url": "https://shubhanalytics.github.io/shubhanalytics-webfolio/index.html",
+        "sameAs": [
+          "https://github.com/shubhanalytics",
+          "https://www.linkedin.com/in/shubhanalytics/",
+          "https://x.com/shubhanalytics"
+        ],
+        "email": "mailto:shubhank.katarey@outlook.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressCountry": "IN"
+        }
+      }
+    </script>
   </head>
   <body class="page-home">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="topbar">
       <div class="sticky-header">
         <div class="profile-header">
-          <img src="images/my-pic.jpg" alt="Shubhank Katarey" class="profile-pic" />
+          <img src="images/my-pic.jpg" alt="Shubhank Katarey" class="profile-pic" width="56" height="56" decoding="async" />
           <div class="profile-info">
             <p class="profile-name">Shubhank Katarey</p>
             <a href="https://x.com/shubhanalytics" target="_blank" rel="noopener noreferrer" class="profile-handle">@shubhanalytics</a>
           </div>
         </div>
-        <button class="menu-btn" aria-label="Open menu" aria-expanded="false" data-menu-button>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" data-menu-button>
           <i class="fas fa-bars"></i>
         </button>
-        <nav class="nav-links" data-nav-links>
+        <nav class="nav-links" id="site-nav" aria-label="Primary" data-nav-links>
           <a href="index.html">Home</a>
           <a href="generic.html">Businesses</a>
           <a href="elements.html">Contact</a>
@@ -34,13 +66,18 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero">
         <div class="container">
           <div class="hero-card hero-card--landing">
             <p class="hero-kicker">Data Analytics | Machine Learning | Business Intelligence</p>
             <h1>Data-Driven Stories That Move Business Forward</h1>
             <p class="subtitle">I help organizations convert raw data into strategic decisions with analytics, machine learning, and executive-ready storytelling.</p>
+            <div class="actions">
+              <a class="btn primary" href="#proof-of-work" data-track="cta_view_projects">View Projects</a>
+              <a class="btn" href="elements.html" data-track="cta_get_in_touch">Get In Touch</a>
+              <a class="btn" href="https://www.linkedin.com/in/shubhanalytics/" target="_blank" rel="noopener noreferrer" data-track="cta_linkedin_profile">LinkedIn Profile</a>
+            </div>
             <div class="hero-metrics" aria-label="Key highlights">
               <div class="hero-metric">
                 <strong>8+</strong>
@@ -86,7 +123,7 @@
                 <p class="explore-note">Feel free to explore these links and discover the stories behind my professional journey and personal passions.</p>
               </div>
               <div class="about-badge">
-                <video width="100%" height="100%" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture>
+                <video width="100%" height="100%" autoplay muted loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture data-autoplay>
                   <source src="images/about-mee.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -208,7 +245,7 @@
             </div>
             <div class="experience-box">
               <div class="experience-icon">🚀</div>
-              <p>Having hands on experience in 14+ projects combinely across Data Analytics, Data Visualization, Data Science, Machine Learning, NLP, etc.</p>
+              <p>Hands-on delivery experience across 14+ projects spanning data analytics, data visualization, data science, machine learning, and NLP.</p>
             </div>
             <div class="experience-box">
               <div class="experience-icon">💡</div>
@@ -220,10 +257,21 @@
 
       <section class="section" id="proof-of-work">
         <div class="container">
+          <article class="panel reveal trust-strip" aria-label="Professional trust signals">
+            <h2>Trusted Experience</h2>
+            <p>Experience across enterprise delivery, certified data-science training, and measurable project execution.</p>
+            <div class="badges" aria-label="Trust highlights">
+              <span>Capgemini</span>
+              <span>Infosys</span>
+              <span>14+ Projects</span>
+              <span>PGPDSBA Certified</span>
+              <span>Executive-Ready Dashboards</span>
+            </div>
+          </article>
           <h2 class="reveal">Proof of Work</h2>
           <div class="grid projects">
             <article class="project-card reveal">
-              <video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-label="Social media tourism project">
+              <video autoplay muted loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture aria-label="Social media tourism project" data-autoplay>
                 <source src="images/social-media-tourism-gif.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -231,12 +279,17 @@
                 <p class="meta">July 2022 · End-to-End Analysis</p>
                 <h3>Social Media & Tourism</h3>
                 <p>Built customer propensity insights from social behavior data for targeted digital campaigns.</p>
-                <a class="btn" href="https://github.com/shubhanalytics/PGPDSBA-Projects/tree/main/Proj.13%20-%20Social%20Media%20Tourism" target="_blank" rel="noopener noreferrer">Open Project</a>
+                <ul class="project-points" aria-label="Social Media and Tourism case study highlights">
+                  <li><strong>Problem:</strong> Campaign teams lacked customer-segment clarity across social channels.</li>
+                  <li><strong>Approach:</strong> Performed EDA and propensity analysis to identify high-intent audience clusters.</li>
+                  <li><strong>Outcome:</strong> Enabled more targeted campaign planning and stronger conversion potential.</li>
+                </ul>
+                <a class="btn" href="https://github.com/shubhanalytics/PGPDSBA-Projects/tree/main/Proj.13%20-%20Social%20Media%20Tourism" target="_blank" rel="noopener noreferrer" data-track="project_open_social_media_tourism">Open Project</a>
               </div>
             </article>
 
             <article class="project-card reveal">
-              <video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-label="Retail order SQL project">
+              <video autoplay muted loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture aria-label="Retail order SQL project" data-autoplay>
                 <source src="images/retail-gif.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -244,12 +297,17 @@
                 <p class="meta">November 2021 · SQL</p>
                 <h3>Retail Order Analytics</h3>
                 <p>Generated data-backed operational insights from online retail order databases.</p>
-                <a class="btn" href="https://github.com/shubhanalytics/PGPDSBA-Projects/tree/main/Proj.09%20-%20SQL" target="_blank" rel="noopener noreferrer">Open Project</a>
+                <ul class="project-points" aria-label="Retail Order Analytics case study highlights">
+                  <li><strong>Problem:</strong> Retail decision-makers had fragmented visibility into order behavior.</li>
+                  <li><strong>Approach:</strong> Wrote SQL-driven analyses for trends, repeat behavior, and category performance.</li>
+                  <li><strong>Outcome:</strong> Delivered structured insight packs to support operational prioritization.</li>
+                </ul>
+                <a class="btn" href="https://github.com/shubhanalytics/PGPDSBA-Projects/tree/main/Proj.09%20-%20SQL" target="_blank" rel="noopener noreferrer" data-track="project_open_retail_sql">Open Project</a>
               </div>
             </article>
 
             <article class="project-card reveal">
-              <video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-label="Insurance claims tableau dashboard">
+              <video autoplay muted loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture aria-label="Insurance claims tableau dashboard" data-autoplay>
                 <source src="images/tableau-gif.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -257,12 +315,17 @@
                 <p class="meta">November 2021 · Tableau</p>
                 <h3>Insurance Claims Visualization</h3>
                 <p>Designed interactive leadership dashboards to support policy and business decisions.</p>
-                <a class="btn" href="https://github.com/shubhanalytics/PGPDSBA-Projects/tree/main/Proj.08%20-%20Data%20Visualisation" target="_blank" rel="noopener noreferrer">Open Project</a>
+                <ul class="project-points" aria-label="Insurance Claims Visualization case study highlights">
+                  <li><strong>Problem:</strong> Claims performance was difficult to monitor through static reporting.</li>
+                  <li><strong>Approach:</strong> Built Tableau dashboards for claim trends, policy metrics, and risk indicators.</li>
+                  <li><strong>Outcome:</strong> Improved leadership visibility for faster and more informed decisions.</li>
+                </ul>
+                <a class="btn" href="https://github.com/shubhanalytics/PGPDSBA-Projects/tree/main/Proj.08%20-%20Data%20Visualisation" target="_blank" rel="noopener noreferrer" data-track="project_open_insurance_tableau">Open Project</a>
               </div>
             </article>
 
             <article class="project-card reveal">
-              <video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-label="Machine learning exit poll project">
+              <video autoplay muted loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture aria-label="Machine learning exit poll project" data-autoplay>
                 <source src="images/election-prediction-gif.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -270,12 +333,17 @@
                 <p class="meta">September 2021 · Machine Learning</p>
                 <h3>Exit Poll Prediction</h3>
                 <p>Built predictive models and text analytics workflows for election behavior analysis.</p>
-                <a class="btn" href="https://github.com/shubhanalytics/PGPDSBA-Projects/tree/main/Proj.06%20-%20Machine%20Learning" target="_blank" rel="noopener noreferrer">Open Project</a>
+                <ul class="project-points" aria-label="Exit Poll Prediction case study highlights">
+                  <li><strong>Problem:</strong> Polling signals were noisy and difficult to interpret at scale.</li>
+                  <li><strong>Approach:</strong> Combined supervised ML and text analytics to model outcome tendencies.</li>
+                  <li><strong>Outcome:</strong> Produced interpretable prediction outputs for comparative scenario analysis.</li>
+                </ul>
+                <a class="btn" href="https://github.com/shubhanalytics/PGPDSBA-Projects/tree/main/Proj.06%20-%20Machine%20Learning" target="_blank" rel="noopener noreferrer" data-track="project_open_exit_poll_ml">Open Project</a>
               </div>
             </article>
           </div>
           <div class="reveal view-all-cta">
-            <a class="btn primary" href="https://github.com/shubhanalytics/PGPDSBA-Projects" target="_blank" rel="noopener noreferrer">View All Projects</a>
+            <a class="btn primary" href="https://github.com/shubhanalytics/PGPDSBA-Projects" target="_blank" rel="noopener noreferrer" data-track="cta_view_all_projects">View All Projects</a>
           </div>
         </div>
       </section>
@@ -286,12 +354,13 @@
         <h3 class="heading-safe">Ready to Unlock Your Data's Potential?</h3>
         <p>Reach me for data analytics, dashboards, AI-powered insights, and strategic BI execution.</p>
         <div class="actions">
-          <a class="btn primary" href="elements.html">Get In Touch</a>
+          <a class="btn primary" href="elements.html" data-track="cta_footer_get_in_touch">Get In Touch</a>
+          <a class="btn" href="https://www.linkedin.com/in/shubhanalytics/" target="_blank" rel="noopener noreferrer" data-track="cta_footer_linkedin_profile">LinkedIn Profile</a>
         </div>
         <p class="copyright">&copy; 2026 shubhanalytics. All rights reserved.</p>
       </div>
     </footer>
 
-    <script src="assets/js/modern.js?v=20260220r15"></script>
+    <script src="assets/js/modern.js?v=20260223r18" defer></script>
   </body>
 </html>

@@ -107,6 +107,22 @@ textarea:focus-visible {
   margin: 0 auto;
 }
 
+.skip-link {
+  position: absolute;
+  left: 0.9rem;
+  top: -3rem;
+  z-index: 200;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(4, 10, 22, 0.98);
+  color: #fff;
+}
+
+.skip-link:focus-visible {
+  top: 0.9rem;
+}
+
 .topbar {
   position: fixed;
   top: 0;
@@ -386,6 +402,14 @@ h3:first-child {
   border-radius: 999px;
   padding: 0.26rem 0.68rem;
   font-size: 0.84rem;
+}
+
+.trust-strip {
+  margin-bottom: 1.2rem;
+}
+
+.trust-strip p {
+  color: var(--muted);
 }
 
 .competencies-grid {
@@ -843,6 +867,21 @@ video::-webkit-media-controls-start-playback-button {
   font-size: 0.83rem;
 }
 
+.project-points {
+  margin: 0.8rem 0 1rem;
+  padding-left: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.project-points li {
+  margin-bottom: 0.32rem;
+}
+
+.project-points strong {
+  color: #d9e7ff;
+}
+
 .panel {
   padding: 1.4rem;
 }
@@ -896,6 +935,15 @@ video::-webkit-media-controls-start-playback-button {
 .btn:hover {
   background: rgba(30, 45, 73, 0.95);
   border-color: rgba(110, 231, 255, 0.4);
+}
+
+.btn:focus-visible,
+.social a:focus-visible,
+.menu-btn:focus-visible,
+.nav-links a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(110, 231, 255, 0.2);
 }
 
 .btn.primary {
@@ -966,6 +1014,23 @@ input:focus,
 textarea:focus {
   background: rgba(7, 14, 30, 0.9);
   border-color: rgba(110, 231, 255, 0.5);
+}
+
+.form-hint {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.form-status {
+  margin: 0.2rem 0 0.9rem;
+  color: #b9f3ff;
+  font-size: 0.88rem;
+  min-height: 1.35rem;
+}
+
+.form-status.error {
+  color: #ffd3d3;
 }
 
 textarea {
@@ -1738,10 +1803,13 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *, *::before, *::after {
     animation: none !important;
     transition: none !important;
-    scroll-behavior: auto !important;
   }
 
   .reveal {

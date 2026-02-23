@@ -1,24 +1,101 @@
 (function () {
+  function trackEvent(eventName, metadata) {
+    if (!eventName) {
+      return;
+    }
+
+    const payload = Object.assign(
+      {
+        event: 'portfolio_interaction',
+        event_name: eventName,
+        page_path: window.location.pathname
+      },
+      metadata || {}
+    );
+
+    if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push(payload);
+    }
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, metadata || {});
+    }
+  }
+
   const menuButton = document.querySelector('[data-menu-button]');
   const navLinks = document.querySelector('[data-nav-links]');
 
   if (menuButton && navLinks) {
+    const navMobileQuery = window.matchMedia('(max-width: 920px)');
+
+    function closeNavMenu() {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      if (navMobileQuery.matches) {
+        navLinks.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    function syncNavAria() {
+      if (navMobileQuery.matches) {
+        const isOpen = navLinks.classList.contains('open');
+        navLinks.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      } else {
+        navLinks.setAttribute('aria-hidden', 'false');
+      }
+    }
+
     menuButton.addEventListener('click', function () {
       const isOpen = navLinks.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      syncNavAria();
     });
 
     navLinks.querySelectorAll('a').forEach(function (anchor) {
       anchor.addEventListener('click', function () {
-        navLinks.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
+        closeNavMenu();
       });
     });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeNavMenu();
+        menuButton.focus();
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!navMobileQuery.matches) {
+        return;
+      }
+
+      if (!navLinks.classList.contains('open')) {
+        return;
+      }
+
+      const clickedInsideNav = navLinks.contains(event.target);
+      const clickedMenuButton = menuButton.contains(event.target);
+
+      if (!clickedInsideNav && !clickedMenuButton) {
+        closeNavMenu();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (!navMobileQuery.matches) {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }
+      syncNavAria();
+    });
+
+    syncNavAria();
   }
 
   const revealElements = document.querySelectorAll('.reveal');
 
-  const autoplayVideos = document.querySelectorAll('video');
+  const autoplayVideos = document.querySelectorAll('video[data-autoplay]');
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function ensureAutoplay(video) {
     video.removeAttribute('controls');
@@ -35,6 +112,10 @@
     video.loop = true;
     video.playsInline = true;
 
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const playPromise = video.play();
     if (playPromise && typeof playPromise.catch === 'function') {
       playPromise.catch(function () {
@@ -44,24 +125,43 @@
   }
 
   if (autoplayVideos.length > 0) {
-    autoplayVideos.forEach(function (video) {
-      ensureAutoplay(video);
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+      const videoObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+              ensureAutoplay(video);
+            } else {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
 
-      video.addEventListener('loadedmetadata', function () {
+      autoplayVideos.forEach(function (video) {
+        videoObserver.observe(video);
+        video.addEventListener('loadedmetadata', function () {
+          ensureAutoplay(video);
+        });
+      });
+    } else {
+      autoplayVideos.forEach(function (video) {
         ensureAutoplay(video);
       });
-
-      video.addEventListener('canplay', function () {
-        ensureAutoplay(video);
-      });
-    });
+    }
 
     document.addEventListener(
       'visibilitychange',
       function () {
-        if (!document.hidden) {
+        if (!document.hidden && !prefersReducedMotion) {
           autoplayVideos.forEach(function (video) {
             ensureAutoplay(video);
+          });
+        } else {
+          autoplayVideos.forEach(function (video) {
+            video.pause();
           });
         }
       },
@@ -71,6 +171,9 @@
     document.addEventListener(
       'touchstart',
       function () {
+        if (prefersReducedMotion) {
+          return;
+        }
         autoplayVideos.forEach(function (video) {
           ensureAutoplay(video);
         });
@@ -108,35 +211,82 @@
     const href = link.getAttribute('href');
     if (href === activePath) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
     }
   });
 
   const businessLinks = document.querySelectorAll('[data-business-link]');
-  const redirectMessage = document.getElementById('business-redirect-message');
 
   businessLinks.forEach(function (businessLink) {
     businessLink.addEventListener('click', function (event) {
       event.preventDefault();
-      if (businessLink.dataset.pendingRedirect === 'true') {
+      if (businessLink.dataset.pendingOpen === 'true') {
         return;
       }
 
-      businessLink.dataset.pendingRedirect = 'true';
+      businessLink.dataset.pendingOpen = 'true';
       const targetUrl = businessLink.getAttribute('data-redirect-url') || businessLink.getAttribute('href');
 
-      if (redirectMessage) {
-        redirectMessage.textContent = 'Redirecting to NutriVerse in a new tab in 3 seconds...';
-      }
-
-      window.setTimeout(function () {
-        window.open(targetUrl, '_blank', 'noopener');
-        businessLink.dataset.pendingRedirect = 'false';
-        if (redirectMessage) {
-          redirectMessage.textContent = '';
-        }
-      }, 3000);
+      window.open(targetUrl, '_blank', 'noopener');
+      trackEvent('business_link_open', { target_url: targetUrl });
+      businessLink.dataset.pendingOpen = 'false';
     });
   });
+
+  document.querySelectorAll('[data-track]').forEach(function (trackedNode) {
+    trackedNode.addEventListener('click', function () {
+      trackEvent(trackedNode.getAttribute('data-track'));
+    });
+  });
+
+  const contactForm = document.querySelector('[data-contact-form]');
+  const contactFormStatus = document.getElementById('contact-form-status');
+
+  if (contactForm && contactFormStatus && window.fetch) {
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      contactFormStatus.classList.remove('error');
+      contactFormStatus.textContent = 'Sending your message...';
+
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+
+      const formData = new FormData(contactForm);
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json'
+        }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            contactForm.reset();
+            contactFormStatus.textContent = 'Thanks! Your message has been sent successfully.';
+            trackEvent('contact_form_submit_success');
+            return;
+          }
+
+          throw new Error('Submission failed');
+        })
+        .catch(function () {
+          contactFormStatus.classList.add('error');
+          contactFormStatus.textContent = 'Unable to send right now. Please try again or email directly.';
+          trackEvent('contact_form_submit_failure');
+        })
+        .finally(function () {
+          if (submitButton) {
+            submitButton.disabled = false;
+          }
+        });
+    });
+  }
 
   // Quote of the Day
   const quotes = [
