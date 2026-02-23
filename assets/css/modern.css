@@ -606,58 +606,7 @@ h3:first-child {
 }
 
 .academic-portfolio-box h2 {
-  margin: 0 0 0.8rem 0;
-}
-
-.academic-portfolio-box p {
-  color: var(--muted);
-  font-size: 0.95rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.portfolio-dimensions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.6rem;
-  margin-top: 2rem;
-}
-
-.dimension-card {
-  padding: 1.6rem;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: rgba(8, 15, 30, 0.4);
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.dimension-card:hover {
-  border-color: var(--primary);
-  background: rgba(14, 165, 233, 0.08);
-  transform: translateY(-2px);
-}
-
-.dimension-icon {
-  font-size: 2.6rem;
-  margin-bottom: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dimension-card h3 {
-  margin: 0 0 0.6rem 0;
-  font-size: 1.15rem;
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.dimension-card p {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #a9b8cc;
 }
 
 .view-all-cta {
@@ -1447,28 +1396,6 @@ textarea {
     font-size: 0.85rem;
   }
 
-  .portfolio-dimensions {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
-
-  .dimension-card {
-    padding: 1.2rem;
-  }
-
-  .dimension-icon {
-    font-size: 2.2rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .dimension-card h3 {
-    font-size: 1.05rem;
-  }
-
-  .dimension-card p {
-    font-size: 0.85rem;
-  }
-
   .businesses-list {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.2rem;
@@ -1720,30 +1647,6 @@ textarea {
   .experience-box p {
     font-size: 0.8rem;
     line-height: 1.5;
-  }
-
-  .portfolio-dimensions {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .dimension-card {
-    padding: 1rem;
-  }
-
-  .dimension-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .dimension-card h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .dimension-card p {
-    font-size: 0.8rem;
   }
 
   .businesses-list {
