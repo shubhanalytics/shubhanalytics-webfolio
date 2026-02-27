@@ -7,6 +7,12 @@
 /* Section/Article */
 
 	section, article {
+		padding: _size(padding) 0;
+
+		&.section--compact {
+			padding: _size(element-margin) 0;
+		}
+
 		&.special {
 			text-align: center;
 		}

@@ -363,6 +363,16 @@ h2 {
   font-size: clamp(1.45rem, 3vw, 2rem);
 }
 
+/* Ensure subsequent h2 headings inside a section have a consistent top gap
+   to match section spacing while leaving the first heading flush. */
+.section h2 {
+  margin: 2.4rem 0 0.8rem;
+}
+
+.section h2:first-of-type {
+  margin-top: 0;
+}
+
 h3 {
   font-size: clamp(1.1rem, 2.2vw, 1.35rem);
   margin: 1.4rem 0 0.65rem;
@@ -592,11 +602,11 @@ h3:first-child {
 }
 
 .section {
-  padding: 2rem 0;
+  padding: 2.4rem 0;
 }
 
 .section--compact {
-  padding: 1.6rem 0 2rem 0;
+  padding: 1.2rem 0;
 }
 
 .academic-portfolio-box {
